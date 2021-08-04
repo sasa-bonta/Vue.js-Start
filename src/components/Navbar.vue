@@ -29,7 +29,10 @@
 
       <v-spacer></v-spacer>
 
-      <v-menu offset-y>
+      <v-menu
+          offset-y
+          :close-on-content-click="false"
+      >
         <template v-slot:activator="{ on, attrs }">
 
           <v-badge
@@ -61,9 +64,9 @@
 
           <v-sheet class="pa-5">
             <v-switch
-                v-model="switch1"
+                v-model="isDarkModeEnabled"
                 inset
-                :label="`Dark Mode: ${switch1.toString()}`"
+                :label="`Dark Mode: ${isDarkModeEnabled.toString()}`"
             ></v-switch>
           </v-sheet>
 
@@ -76,6 +79,7 @@
 
 <script>
 import Settings from "./Settings";
+
 export default {
   name: "Navbar",
   components: {Settings},
@@ -92,8 +96,7 @@ export default {
       {title: 'Help and Assistance'},
       {title: 'Log out'},
     ],
-    switch1: true,
-    switch2: false,
+    isDarkModeEnabled: true,
   }),
 }
 </script>
