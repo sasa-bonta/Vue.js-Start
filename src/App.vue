@@ -6,37 +6,7 @@
       <v-container>
         <v-row>
           <v-col cols="2">
-            <v-sheet
-              rounded="lg"
-              elevation="3"
-            >
-              <v-list color="transparent">
-                <v-list-item
-                  v-for="n in 5"
-                  :key="n"
-                  link
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      List Item {{ n }}
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-divider class="my-2" />
-
-                <v-list-item
-                  link
-                  color="grey lighten-4"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      Refresh
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-sheet>
+            <Categories />
           </v-col>
 
           <v-col>
@@ -57,9 +27,10 @@
 <script>
 import MainView from "./components/MainView";
 import Navbar from "./components/Navbar";
+import Categories from "./components/Categories";
 
 export default {
-  components: {Navbar, MainView},
+  components: {Categories, Navbar, MainView},
 }
 </script>
 
