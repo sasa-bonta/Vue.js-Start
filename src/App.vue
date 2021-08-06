@@ -1,16 +1,20 @@
 <template>
   <v-app id="inspire">
-    <Navbar/>
-    <v-main class="grey lighten-3">
+    <Navbar />
+    <!--    <v-main class="grey lighten-3">-->
+    <v-main>
       <v-container>
         <v-row>
           <v-col cols="2">
-            <v-sheet rounded="lg">
+            <v-sheet
+              rounded="lg"
+              elevation="3"
+            >
               <v-list color="transparent">
                 <v-list-item
-                    v-for="n in 5"
-                    :key="n"
-                    link
+                  v-for="n in 5"
+                  :key="n"
+                  link
                 >
                   <v-list-item-content>
                     <v-list-item-title>
@@ -19,11 +23,11 @@
                   </v-list-item-content>
                 </v-list-item>
 
-                <v-divider class="my-2"></v-divider>
+                <v-divider class="my-2" />
 
                 <v-list-item
-                    link
-                    color="grey lighten-4"
+                  link
+                  color="grey lighten-4"
                 >
                   <v-list-item-content>
                     <v-list-item-title>
@@ -37,10 +41,11 @@
 
           <v-col>
             <v-sheet
-                min-height="70vh"
-                rounded="lg"
+              min-height="70vh"
+              rounded="lg"
+              elevation="2"
             >
-              <MainView/>
+              <MainView />
             </v-sheet>
           </v-col>
         </v-row>

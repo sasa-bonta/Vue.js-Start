@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Dashboard from "../components/pages/Dashboard";
 import Messages from "../components/pages/Messages";
-import Profiles from "../components/pages/Profiles";
+import Products from "../components/pages/Products";
 import Updates from "../components/pages/Updates";
 import Cart from "../components/pages/Cart";
 
@@ -12,7 +12,7 @@ const routes = [
     {path: '/', redirect: '/dashboard'},
     {path: '/dashboard', component: Dashboard},
     {path: '/messages', component: Messages},
-    {path: '/profiles', component: Profiles},
+    {path: '/products', component: Products},
     {path: '/updates', component: Updates},
     {path: '/cart', component: Cart},
 ]
