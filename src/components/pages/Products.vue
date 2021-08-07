@@ -7,34 +7,9 @@
     >
       <v-row>
         <v-col
-          cols="6"
-        >
-          <v-skeleton-loader
-            class="mx-auto"
-            max-width="300"
-            type="card"
-          />
-        </v-col>
-        <v-col
-          cols="6"
-        >
-          <v-skeleton-loader
-            class="mx-auto"
-            max-width="300"
-            type="card"
-          />
-        </v-col>
-        <v-col
-          cols="6"
-        >
-          <v-skeleton-loader
-            class="mx-auto"
-            max-width="300"
-            type="card"
-          />
-        </v-col>
-        <v-col
-          cols="6"
+          v-for="index in 6"
+          :key="index"
+          cols="4"
         >
           <v-skeleton-loader
             class="mx-auto"
@@ -52,7 +27,7 @@
       <v-col
         v-for="(item, index) in $store.getters['products/getList']"
         :key="item.link + '-' + index"
-        cols="6"
+        cols="4"
       >
         <ProductItem
           :item="item"

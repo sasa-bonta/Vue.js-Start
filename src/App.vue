@@ -3,9 +3,11 @@
     <Navbar />
     <!--    <v-main class="grey lighten-3">-->
     <v-main>
-      <v-container>
+      <v-container
+        fluid
+      >
         <v-row>
-          <v-col cols="3">
+          <v-col cols="2">
             <Categories />
           </v-col>
 
