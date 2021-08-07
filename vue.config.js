@@ -10,7 +10,7 @@ module.exports = {
                 changeOrigin: true,
             },
             '^/api/products': {
-                target: 'http://localhost:8003/page?link=/ru/list/transport/cars',
+                target: 'http://localhost:8003/page',
                 pathRewrite: {
                     '^/api/products': '',
                 },
