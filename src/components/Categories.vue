@@ -12,7 +12,6 @@
         dark
       >
         <v-toolbar-title>Categories</v-toolbar-title>
-
         <v-spacer />
       </v-toolbar>
       <v-navigation-drawer
@@ -21,6 +20,13 @@
         width="100%"
         permanent
       >
+        <v-divider class="my-2" />
+        <v-progress-linear
+          v-if="$store.getters['categories/getIsLoading']"
+          indeterminate
+          height="8"
+          color="pink lighten-1"
+        />
         <div
           v-for="(item, i) in $store.getters['categories/getList']"
           :key="'category-' + i"
@@ -38,9 +44,9 @@
               >
                 <v-list-item-content>
                   <v-list-item-title v-text="item.name" />
+                  <v-divider class="my-2" />
                 </v-list-item-content>
               </template>
-
               <div
                 v-for="(subCategory, j) in $store.getters['categories/getList']"  
                 :key="'subCategories-' + j"
