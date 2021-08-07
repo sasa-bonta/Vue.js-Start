@@ -87,7 +87,6 @@ export default {
     if (!this.$store.getters['categories/getList'].length) {
       this.$store.dispatch('categories/fetchCategories')
     }
-    // this.$store.commit('')
   }
 }
 </script>
