@@ -1,10 +1,10 @@
 module.exports = {
     devServer: {
         proxy: {
-            '^/api': {
+            '^/api/categories': {
                 target: 'http://localhost:8003/categories',
                 pathRewrite: {
-                    '^/api': '',
+                    '^/api/categories': '',
                 },
                 ws: true,
                 changeOrigin: true

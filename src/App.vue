@@ -5,7 +5,7 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="3">
             <Categories />
           </v-col>
 

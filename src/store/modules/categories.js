@@ -8,7 +8,7 @@ export default {
     },
     actions: {
         async fetchCategories({commit}) {
-            const categories = await fetch('/api')
+            const categories = await fetch('/api/categories')
             commit('mutateList', await categories.json())
         }
     },
