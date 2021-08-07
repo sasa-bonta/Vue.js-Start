@@ -24,7 +24,7 @@
         <v-progress-linear
           v-if="$store.getters['categories/getIsLoading']"
           indeterminate
-          height="8"
+          height="6"
           color="pink lighten-1"
         />
         <div
@@ -48,16 +48,28 @@
                 </v-list-item-content>
               </template>
               <div
-                v-for="(subCategory, j) in $store.getters['categories/getList']"  
-                :key="'subCategories-' + j"
+                v-for="(subCategory, j) in $store.getters['categories/getList']"
+                :key="'subCategory-' + j"
                 class="subCategories"
               >
                 <v-list-item
                   v-if="subCategory.parentLink === item.link"
                 >
-                  <v-list-item-content>
-                    <v-list-item-title v-text="subCategory.name" />
-                  </v-list-item-content>
+                  <router-link
+                    :to="{ path: 'products', 
+                           query: {
+                             link: subCategory.link
+                           } }"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title v-text="subCategory.name">
+                        <router-link
+                          to="/products"
+                          v-text="subCategory.name"
+                        />
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </router-link>
                 </v-list-item>
               </div>
             </v-list-group>
@@ -72,7 +84,10 @@
 export default {
   name: "Categories",
   mounted() {
-    this.$store.dispatch('categories/fetchCategories')
+    if (!this.$store.getters['categories/getList'].length) {
+      this.$store.dispatch('categories/fetchCategories')
+    }
+    // this.$store.commit('')
   }
 }
 </script>
@@ -82,6 +97,11 @@ export default {
   color: #EC407A !important;
   caret-color: #EC407A !important;
   font-weight: bold;
+}
+
+.v-application a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .subCategories {

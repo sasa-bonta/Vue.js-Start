@@ -12,7 +12,7 @@ const routes = [
     {path: '/', redirect: '/dashboard'},
     {path: '/dashboard', component: Dashboard},
     {path: '/messages', component: Messages},
-    {path: '/products', component: Products},
+    {path: '/products', component: Products, props: (router) => ({link: router.query.link})},
     {path: '/updates', component: Updates},
     {path: '/cart', component: Cart},
 ]

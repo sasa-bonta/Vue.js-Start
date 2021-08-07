@@ -7,9 +7,17 @@ module.exports = {
                     '^/api/categories': '',
                 },
                 ws: true,
-                changeOrigin: true
+                changeOrigin: true,
             },
-        }
+            '^api/products': {
+                target: 'http://localhost:8003/products?link=ru/list/transport/cars',
+                pathRewrite: {
+                    '^api/products': '',
+                },
+                ws: true,
+                changeOrigin: true,
+            },
+        },
     },
     transpileDependencies: [
         'vuetify'

@@ -15,7 +15,17 @@ import ProductItem from "./ProductItem";
 
 export default {
   name: "Cart",
-  components: {ProductItem}
+  components: {ProductItem},
+  props: {
+    link: {
+      required: false,
+      defaults: () => '',
+      type: String,
+    }
+  },
+  mounted() {
+   console.log(this.link)
+  }
 }
 </script>
 
