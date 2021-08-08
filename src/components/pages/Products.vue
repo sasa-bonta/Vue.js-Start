@@ -54,6 +54,11 @@ export default {
     theme: {
     },
   },
+  watch: {
+    $route() {
+      this.$store.dispatch('products/loadProducts', this.link)
+    },
+  },
   mounted() {
     this.$store.dispatch('products/loadProducts', this.link)
   }

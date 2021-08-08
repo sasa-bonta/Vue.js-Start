@@ -1,62 +1,62 @@
 <template>
   <v-sheet
-    rounded="lg"
-    elevation="3"
+      rounded="lg"
+      elevation="3"
   >
     <v-card
-      class="mx-auto"
-      max-width="500"
+        class="mx-auto"
+        max-width="500"
     >
       <v-toolbar
-        color="blue darken-4"
-        dark
+          color="blue darken-4"
+          dark
       >
         <v-toolbar-title>Categories</v-toolbar-title>
-        <v-spacer />
+        <v-spacer/>
       </v-toolbar>
       <v-navigation-drawer
-        dark
-        src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-        width="100%"
-        permanent
+          dark
+          src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+          width="100%"
+          permanent
       >
-        <v-divider class="my-2" />
+        <v-divider class="my-2"/>
         <v-progress-linear
-          v-if="$store.getters['categories/getIsLoading']"
-          indeterminate
-          height="6"
-          color="pink lighten-1"
+            v-if="$store.getters['categories/getIsLoading']"
+            indeterminate
+            height="6"
+            color="pink lighten-1"
         />
         <div
-          v-for="(item, i) in $store.getters['categories/getList']"
-          :key="'category-' + i"
+            v-for="(item, i) in $store.getters['categories/getList']"
+            :key="'category-' + i"
         >
           <v-list
-            v-if="!item.parentLink"
+              v-if="!item.parentLink"
           >
             <v-list-group
-              v-model="item.active"
-              :prepend-icon="item.action"
-              no-action
+                v-model="item.active"
+                :prepend-icon="item.action"
+                no-action
             >
               <template
-                v-slot:activator
+                  v-slot:activator
               >
                 <v-list-item-content>
-                  <v-list-item-title v-text="item.name" />
-                  <v-divider class="my-2" />
+                  <v-list-item-title v-text="item.name"/>
+                  <v-divider class="my-2"/>
                 </v-list-item-content>
               </template>
               <div
-                v-for="(subCategory, j) in $store.getters['categories/getList']"
-                :key="'subCategory-' + j"
-                class="subCategories"
+                  v-for="(subCategory, j) in $store.getters['categories/getList']"
+                  :key="'subCategory-' + j"
+                  class="subCategories"
               >
                 <v-list-item
-                  v-if="subCategory.parentLink === item.link"
+                    v-if="subCategory.parentLink === item.link"
                 >
                   <router-link
-                    :to="{ path: 'products', 
+                      :to="{ path: 'products',
                            query: {
                              link: subCategory.link
                            } }"
@@ -64,8 +64,8 @@
                     <v-list-item-content>
                       <v-list-item-title v-text="subCategory.name">
                         <router-link
-                          to="/products"
-                          v-text="subCategory.name"
+                            to="/products"
+                            v-text="subCategory.name"
                         />
                       </v-list-item-title>
                     </v-list-item-content>
