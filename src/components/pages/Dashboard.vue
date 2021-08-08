@@ -1,58 +1,58 @@
 <template>
   <v-container fluid>
     <v-data-iterator
-      :items="items"
-      :items-per-page.sync="itemsPerPage"
-      :page.sync="page"
-      :search="search"
-      :sort-by="sortBy.toLowerCase()"
-      :sort-desc="sortDesc"
-      hide-default-footer
+        :items="items"
+        :items-per-page.sync="itemsPerPage"
+        :page.sync="page"
+        :search="search"
+        :sort-by="sortBy.toLowerCase()"
+        :sort-desc="sortDesc"
+        hide-default-footer
     >
       <template v-slot:header>
         <v-toolbar
-          dark
-          color="blue darken-3"
-          class="mb-1"
+            dark
+            color="blue darken-3"
+            class="mb-1"
         >
           <v-text-field
-            v-model="search"
-            clearable
-            flat
-            solo-inverted
-            hide-details
-            prepend-inner-icon="mdi-magnify"
-            label="Search"
-          />
-          <template v-if="$vuetify.breakpoint.mdAndUp">
-            <v-spacer />
-            <v-select
-              v-model="sortBy"
+              v-model="search"
+              clearable
               flat
               solo-inverted
               hide-details
-              :items="keys"
               prepend-inner-icon="mdi-magnify"
-              label="Sort by"
+              label="Search"
+          />
+          <template v-if="$vuetify.breakpoint.mdAndUp">
+            <v-spacer/>
+            <v-select
+                v-model="sortBy"
+                flat
+                solo-inverted
+                hide-details
+                :items="keys"
+                prepend-inner-icon="mdi-magnify"
+                label="Sort by"
             />
-            <v-spacer />
+            <v-spacer/>
             <v-btn-toggle
-              v-model="sortDesc"
-              mandatory
+                v-model="sortDesc"
+                mandatory
             >
               <v-btn
-                large
-                depressed
-                color="blue"
-                :value="false"
+                  large
+                  depressed
+                  color="blue"
+                  :value="false"
               >
                 <v-icon>mdi-arrow-up</v-icon>
               </v-btn>
               <v-btn
-                large
-                depressed
-                color="blue"
-                :value="true"
+                  large
+                  depressed
+                  color="blue"
+                  :value="true"
               >
                 <v-icon>mdi-arrow-down</v-icon>
               </v-btn>
@@ -64,31 +64,31 @@
       <template v-slot:default="props">
         <v-row>
           <v-col
-            v-for="item in props.items"
-            :key="item.name"
-            cols="12"
-            sm="6"
-            md="4"
-            lg="3"
+              v-for="item in props.items"
+              :key="item.name"
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
           >
             <v-card>
               <v-card-title class="subheading font-weight-bold">
                 {{ item.name }}
               </v-card-title>
 
-              <v-divider />
+              <v-divider/>
 
               <v-list dense>
                 <v-list-item
-                  v-for="(key, index) in filteredKeys"
-                  :key="index"
+                    v-for="(key, index) in filteredKeys"
+                    :key="index"
                 >
                   <v-list-item-content :class="{ 'blue--text': sortBy === key }">
                     {{ key }}:
                   </v-list-item-content>
                   <v-list-item-content
-                    class="align-end"
-                    :class="{ 'blue--text': sortBy === key }"
+                      class="align-end"
+                      :class="{ 'blue--text': sortBy === key }"
                   >
                     {{ item[key.toLowerCase()] }}
                   </v-list-item-content>
@@ -101,20 +101,20 @@
 
       <template v-slot:footer>
         <v-row
-          class="mt-2"
-          align="center"
-          justify="center"
+            class="mt-2"
+            align="center"
+            justify="center"
         >
           <span class="grey--text">Items per page</span>
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                dark
-                text
-                color="primary"
-                class="ml-2"
-                v-bind="attrs"
-                v-on="on"
+                  dark
+                  text
+                  color="primary"
+                  class="ml-2"
+                  v-bind="attrs"
+                  v-on="on"
               >
                 {{ itemsPerPage }}
                 <v-icon>mdi-chevron-down</v-icon>
@@ -122,25 +122,25 @@
             </template>
             <v-list>
               <v-list-item
-                v-for="(number, index) in itemsPerPageArray"
-                :key="index"
-                @click="updateItemsPerPage(number)"
+                  v-for="(number, index) in itemsPerPageArray"
+                  :key="index"
+                  @click="updateItemsPerPage(number)"
               >
                 <v-list-item-title>{{ number }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
 
-          <v-spacer />
+          <v-spacer/>
         </v-row>
       </template>
     </v-data-iterator>
 
     <div class="text-center">
       <v-pagination
-        v-model="page"
-        class="pa-2"
-        :length="6"
+          v-model="page"
+          class="pa-2"
+          :length="6"
       />
     </div>
   </v-container>

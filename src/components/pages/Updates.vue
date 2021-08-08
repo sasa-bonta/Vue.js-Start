@@ -1,64 +1,64 @@
 <template>
   <div>
     <v-sheet
-      tile
-      height="54"
-      class="d-flex"
+        tile
+        height="54"
+        class="d-flex"
     >
       <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.prev()"
+          icon
+          class="ma-2"
+          @click="$refs.calendar.prev()"
       >
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
       <v-select
-        v-model="type"
-        :items="types"
-        dense
-        outlined
-        hide-details
-        class="ma-2"
-        label="type"
+          v-model="type"
+          :items="types"
+          dense
+          outlined
+          hide-details
+          class="ma-2"
+          label="type"
       />
       <v-select
-        v-model="mode"
-        :items="modes"
-        dense
-        outlined
-        hide-details
-        label="event-overlap-mode"
-        class="ma-2"
+          v-model="mode"
+          :items="modes"
+          dense
+          outlined
+          hide-details
+          label="event-overlap-mode"
+          class="ma-2"
       />
       <v-select
-        v-model="weekday"
-        :items="weekdays"
-        dense
-        outlined
-        hide-details
-        label="weekdays"
-        class="ma-2"
+          v-model="weekday"
+          :items="weekdays"
+          dense
+          outlined
+          hide-details
+          label="weekdays"
+          class="ma-2"
       />
-      <v-spacer />
+      <v-spacer/>
       <v-btn
-        icon
-        class="ma-2"
-        @click="$refs.calendar.next()"
+          icon
+          class="ma-2"
+          @click="$refs.calendar.next()"
       >
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
     </v-sheet>
     <v-sheet height="600">
       <v-calendar
-        ref="calendar"
-        v-model="value"
-        :weekdays="weekday"
-        :type="type"
-        :events="events"
-        :event-overlap-mode="mode"
-        :event-overlap-threshold="30"
-        :event-color="getEventColor"
-        @change="getEvents"
+          ref="calendar"
+          v-model="value"
+          :weekdays="weekday"
+          :type="type"
+          :events="events"
+          :event-overlap-mode="mode"
+          :event-overlap-threshold="30"
+          :event-color="getEventColor"
+          @change="getEvents"
       />
     </v-sheet>
   </div>
@@ -73,10 +73,10 @@ export default {
     modes: ['stack', 'column'],
     weekday: [0, 1, 2, 3, 4, 5, 6],
     weekdays: [
-      { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
-      { text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0] },
-      { text: 'Mon - Fri', value: [1, 2, 3, 4, 5] },
-      { text: 'Mon, Wed, Fri', value: [1, 3, 5] },
+      {text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6]},
+      {text: 'Mon - Sun', value: [1, 2, 3, 4, 5, 6, 0]},
+      {text: 'Mon - Fri', value: [1, 2, 3, 4, 5]},
+      {text: 'Mon, Wed, Fri', value: [1, 3, 5]},
     ],
     value: '',
     events: [],
@@ -84,7 +84,7 @@ export default {
     names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
   }),
   methods: {
-    getEvents ({ start, end }) {
+    getEvents({start, end}) {
       const events = []
 
       const min = new Date(`${start.date}T00:00:00`)
@@ -110,10 +110,10 @@ export default {
 
       this.events = events
     },
-    getEventColor (event) {
+    getEventColor(event) {
       return event.color
     },
-    rnd (a, b) {
+    rnd(a, b) {
       return Math.floor((b - a + 1) * Math.random()) + a
     },
   },

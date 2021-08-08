@@ -1,12 +1,12 @@
 <template>
   <v-card
-    class="mx-auto"
-    max-width="344"
-    :color="`grey ${theme.isDark ? 'darken-3' : 'lighten-5'}`"
+      class="mx-auto"
+      max-width="344"
+      :color="`grey ${theme.isDark ? 'darken-3' : 'lighten-5'}`"
   >
     <v-img
-      :src="item.img[0] || 'https://i.stack.imgur.com/y9DpT.jpg'"
-      height="200px"
+        :src="item.img[0] || 'https://i.stack.imgur.com/y9DpT.jpg'"
+        height="200px"
     />
 
     <v-card-title>
@@ -14,30 +14,30 @@
     </v-card-title>
 
     <v-card-subtitle
-      v-if="item.price"
+        v-if="item.price"
     >
       {{ item.price }} €
     </v-card-subtitle>
 
     <v-card-subtitle
-      v-else
+        v-else
     >
       Договорная
     </v-card-subtitle>
 
     <v-card-actions>
       <v-btn
-        color="orange lighten-2"
-        text
+          color="orange lighten-2"
+          text
       >
         Description
       </v-btn>
 
-      <v-spacer />
+      <v-spacer/>
 
       <v-btn
-        icon
-        @click="show = !show"
+          icon
+          @click="show = !show"
       >
         <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
       </v-btn>
@@ -45,7 +45,7 @@
 
     <v-expand-transition>
       <div v-show="show">
-        <v-divider />
+        <v-divider/>
 
         <v-card-text>
           {{ item.description }}
@@ -59,8 +59,7 @@
 export default {
   name: "ProductItem",
   inject: {
-    theme: {
-    },
+    theme: {},
   },
   props: {
     item: {
