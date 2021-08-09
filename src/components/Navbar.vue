@@ -71,7 +71,7 @@
 
           <v-sheet class="pa-5">
             <v-switch
-                :value="$vuetify.theme.dark"
+                :input-value="isDarkModeEnabled"
                 inset
                 label="Dark Mode"
                 @change="changeDarkMode"

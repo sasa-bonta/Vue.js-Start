@@ -10,7 +10,6 @@ export default {
     mutations: {
         setDarkModeEnabled(state, payload) {
             state.isDarkModeEnabled = payload
-            console.log(state.isDarkModeEnabled)
         },
     },
 }
