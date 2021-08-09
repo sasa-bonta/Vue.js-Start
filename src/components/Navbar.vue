@@ -74,7 +74,7 @@
                 :value="$vuetify.theme.dark"
                 inset
                 label="Dark Mode"
-                @change="$vuetify.theme.dark = !$vuetify.theme.dark"
+                @change="changeDarkMode"
             />
           </v-sheet>
         </v-list>
@@ -85,10 +85,27 @@
 
 <script>
 import Settings from "./Settings";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Navbar",
   components: {Settings},
+  methods: {
+    changeDarkMode() {
+      this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
+    },
+  },
+  watch: {
+    isDarkModeEnabled: {
+      handler() {
+        this.$vuetify.theme.dark = this.isDarkModeEnabled
+      },
+      immediate: true,
+    },
+  },
+  computed: mapGetters({
+    isDarkModeEnabled: 'settings/getDarkModeEnabled'
+  }),
   data: () => ({
     links: [
       {title: 'Dashboard', route: '/dashboard'},
