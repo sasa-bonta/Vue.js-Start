@@ -1,9 +1,9 @@
 <template>
-<!--    <v-app-bar-->
-<!--        app-->
-<!--        flat-->
-<!--        color="white"-->
-<!--    >-->
+  <!--    <v-app-bar-->
+  <!--        app-->
+  <!--        flat-->
+  <!--        color="white"-->
+  <!--    >-->
   <v-app-bar
       app
       flat
@@ -21,7 +21,10 @@
 
       <v-spacer/>
 
-     <Search/>
+      <Search
+          :search-value="inputData"
+          @submitInput="search"
+      />
 
       <v-spacer/>
 
@@ -87,6 +90,11 @@ export default {
     changeDarkMode() {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
+    search(value) {
+      if (value !== '') {
+        this.$router.push(`/products?link=/ru/search/?query=${value}`)
+      }
+    }
   },
   watch: {
     isDarkModeEnabled: {
@@ -94,6 +102,9 @@ export default {
         this.$vuetify.theme.dark = this.isDarkModeEnabled
       },
       immediate: true,
+    },
+    inputData: function () {
+      console.log(this.inputData)
     },
   },
   computed: mapGetters({
@@ -112,6 +123,7 @@ export default {
       {title: 'Help and Assistance'},
       {title: 'Log out'},
     ],
+    inputData: '',
   }),
 }
 </script>

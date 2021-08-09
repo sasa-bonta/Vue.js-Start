@@ -10,6 +10,7 @@ export default {
     },
     actions: {
         async loadProducts(store, payload) {
+            // check if search is !== "" => load products. If search is !== "", change payload. Display searched products
             store.commit('mutateLoading', true)
             const products = await fetch(`/api/products?link=${payload}`)
             store.commit('mutateList', await products.json())
