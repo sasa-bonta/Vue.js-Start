@@ -30,10 +30,10 @@
             v-for="(item, i) in $store.getters['categories/getList']"
             :key="'category-' + i"
         >
-          <v-divider class="my-2"/>
           <v-list
               v-if="!item.parentLink"
           >
+            <v-divider class="my-2"/>
             <v-list-group
                 v-model="item.active"
                 :prepend-icon="item.action"

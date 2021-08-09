@@ -1,9 +1,9 @@
 <template>
-  <!--  <v-app-bar-->
-  <!--      app-->
-  <!--      flat-->
-  <!--      color="white"-->
-  <!--  >-->
+<!--    <v-app-bar-->
+<!--        app-->
+<!--        flat-->
+<!--        color="white"-->
+<!--    >-->
   <v-app-bar
       app
       flat
@@ -21,15 +21,7 @@
 
       <v-spacer/>
 
-      <v-responsive max-width="260">
-        <v-text-field
-            dense
-            flat
-            hide-details
-            rounded
-            solo-inverted
-        />
-      </v-responsive>
+     <Search/>
 
       <v-spacer/>
 
@@ -86,10 +78,11 @@
 <script>
 import Settings from "./Settings";
 import {mapGetters} from "vuex";
+import Search from "./Search";
 
 export default {
   name: "Navbar",
-  components: {Settings},
+  components: {Search, Settings},
   methods: {
     changeDarkMode() {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
