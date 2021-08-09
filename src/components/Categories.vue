@@ -20,7 +20,6 @@
           width="100%"
           permanent
       >
-        <v-divider class="my-2"/>
         <v-progress-linear
             v-if="$store.getters['categories/getIsLoading']"
             indeterminate
@@ -31,6 +30,7 @@
             v-for="(item, i) in $store.getters['categories/getList']"
             :key="'category-' + i"
         >
+          <v-divider class="my-2"/>
           <v-list
               v-if="!item.parentLink"
           >
@@ -44,7 +44,6 @@
               >
                 <v-list-item-content>
                   <v-list-item-title v-text="item.name"/>
-                  <v-divider class="my-2"/>
                 </v-list-item-content>
               </template>
               <div
