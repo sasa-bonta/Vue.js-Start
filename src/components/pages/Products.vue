@@ -34,6 +34,12 @@
         />
       </v-col>
     </v-row>
+      <div class="text-center">
+        <v-pagination
+            v-model="page"
+            :length="6"
+        ></v-pagination>
+      </div>
   </v-container>
 </template>
 
@@ -60,6 +66,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch('products/loadProducts', this.link)
+  },
+  data() {
+    return {
+      page: 1
+    }
   },
 }
 </script>
