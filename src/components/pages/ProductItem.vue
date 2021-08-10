@@ -1,6 +1,6 @@
 <template>
   <v-card
-      class="mx-auto"
+      class="mx-auto fill-height card-outter"
       max-width="344"
       :color="`grey ${theme.isDark ? 'darken-3' : 'lighten-5'}`"
   >
@@ -25,7 +25,9 @@
       Договорная
     </v-card-subtitle>
 
-    <v-card-actions>
+    <v-card-actions
+        class="card-actions w-100"
+    >
       <v-btn
           color="orange lighten-2"
           text
@@ -74,5 +76,14 @@ export default {
 </script>
 
 <style scoped>
+.card-outter {
+  position: relative;
+  padding-bottom: 50px;
+}
 
+.card-actions {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 </style>
