@@ -91,11 +91,14 @@ export default {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
     search(value) {
-      if (value !== '') {
-        this.$router.push({ path: 'products',
+      if (value !== '' && value !== this.$route.query.search) {
+        this.searchValue = value
+        this.$router.push({
+          path: 'products',
           query: {
             link: `/ru/search/?query=${value}`
-          } })
+          }
+        })
       }
     }
   },
@@ -105,9 +108,6 @@ export default {
         this.$vuetify.theme.dark = this.isDarkModeEnabled
       },
       immediate: true,
-    },
-    inputData: function () {
-      console.log(this.inputData)
     },
   },
   computed: mapGetters({
