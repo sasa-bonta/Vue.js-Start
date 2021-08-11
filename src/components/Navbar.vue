@@ -92,11 +92,10 @@ export default {
     },
     search(value) {
       if (value !== '') {
-        this.$router.push(`/products?link=/ru/search/?query=${value}`)
-        // this.$router.push({ path: 'products',
-        //   query: {
-        //     link: `/ru/search/?query=${value}`
-        //   } })
+        this.$router.push({ path: 'products',
+          query: {
+            link: `/ru/search/?query=${value}`
+          } })
       }
     }
   },
