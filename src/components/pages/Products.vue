@@ -2,7 +2,7 @@
   <v-container>
     <div
         v-infinite-scroll="loadMore"
-        infinite-scroll-disabled="busy"
+        :infinite-scroll-disabled="!$store.getters['products/getIsLoading']"
         infinite-scroll-throttle-delay="1000"
     >
       <v-row>
@@ -57,26 +57,35 @@ export default {
   },
   watch: {
     $route() {
-      this.$store.dispatch('products/loadProducts', {
-        link: this.link,
-      })
-    },
-    link: {
-      handler() {
-        this.page = 1
+      if (!this.$store.getters["products/getIsLoading"]) {
+        console.log("route")
         this.$store.dispatch('products/loadProducts', {
           link: this.link,
         })
+      }
+    },
+    link: {
+      handler() {
+        if (!this.$store.getters["products/getIsLoading"]) {
+          console.log("handler")
+          this.page = 1
+          this.$store.dispatch('products/loadProducts', {
+            link: this.link,
+          })
+        }
       },
       immediate: true,
     },
   },
   methods: {
     loadMore: function () {
-      this.$store.dispatch('products/loadProducts', {
-        link: this.link,
-        page: ++this.page,
-      })
+      if (!this.$store.getters["products/getIsLoading"]) {
+        console.log("loadMore")
+        this.$store.dispatch('products/loadProducts', {
+          link: this.link,
+          page: ++this.page,
+        })
+      }
     }
   }
 }

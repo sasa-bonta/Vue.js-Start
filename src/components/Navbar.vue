@@ -22,8 +22,8 @@
       <v-spacer/>
 
       <Search
-          :search-value="inputData"
           @submitInput="search"
+          v-model="inputData"
       />
 
       <v-spacer/>
@@ -90,13 +90,12 @@ export default {
     changeDarkMode() {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
-    search(value) {
-      if (value !== '' && value !== this.$route.query.search) {
-        this.searchValue = value
+    search() {
+      if (this.inputData !== '' && this.inputData !== this.$route.query.search) {
         this.$router.push({
           path: 'products',
           query: {
-            link: `/ru/search/?query=${value}`
+            link: `/ru/search/?query=${this.inputData}`
           }
         })
       }
@@ -109,10 +108,28 @@ export default {
       },
       immediate: true,
     },
+    link: function () {
+      if (this.link !== '/products') {
+        this.inputData = ''
+      }
+    },
+    fullPath: function () {
+      if (!this.$route.query.link?.includes('/search/')) {
+        this.inputData = ''
+      }
+    }
   },
-  computed: mapGetters({
+  computed: {
+    ...mapGetters({
     isDarkModeEnabled: 'settings/getDarkModeEnabled'
   }),
+    link: function () {
+      return this.$route.path
+    },
+    fullPath: function () {
+      return this.$route.fullPath
+    }
+  },
   data: () => ({
     links: [
       {title: 'Dashboard', route: '/dashboard'},

@@ -5,7 +5,7 @@
       :color="`grey ${theme.isDark ? 'darken-3' : 'lighten-5'}`"
   >
     <v-img
-        :src="item.img[0] || 'https://i.stack.imgur.com/y9DpT.jpg'"
+        :src="item.img[0].replace('https://i.simpalsmedia.com/999.md/BoardImages/900x900/noimage.gif', 'https://i.stack.imgur.com/y9DpT.jpg')"
         height="200px"
     />
 
