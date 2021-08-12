@@ -58,7 +58,6 @@ export default {
   watch: {
     $route() {
       if (!this.$store.getters["products/getIsLoading"]) {
-        console.log("route")
         this.$store.dispatch('products/loadProducts', {
           link: this.link,
         })
@@ -67,7 +66,6 @@ export default {
     link: {
       handler() {
         if (!this.$store.getters["products/getIsLoading"]) {
-          console.log("handler")
           this.page = 1
           this.$store.dispatch('products/loadProducts', {
             link: this.link,
@@ -80,7 +78,6 @@ export default {
   methods: {
     loadMore: function () {
       if (!this.$store.getters["products/getIsLoading"]) {
-        console.log("loadMore")
         this.$store.dispatch('products/loadProducts', {
           link: this.link,
           page: ++this.page,
