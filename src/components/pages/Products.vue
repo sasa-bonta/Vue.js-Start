@@ -58,6 +58,8 @@ export default {
   watch: {
     $route() {
       if (!this.$store.getters["products/getIsLoading"]) {
+        this.page = 1
+
         this.$store.dispatch('products/loadProducts', {
           link: this.link,
         })

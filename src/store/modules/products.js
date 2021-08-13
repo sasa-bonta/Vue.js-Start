@@ -14,7 +14,7 @@ export default {
             let appender = link.includes('?') ? '&' : '?'
             const products = await fetch(`/api/products?link=${link}${appender}page=${page}`)
             if (page > 1) {
-                store.commit('mutateAppendList',await products.json())
+                store.commit('mutateAppendList', await products.json())
             } else {
                 store.commit('mutateList', await products.json())
             }
@@ -30,6 +30,9 @@ export default {
         },
         mutateLoading(state, payload) {
             state.isLoading = payload
+        },
+        setList(state, payload) {
+            state.list = payload
         },
     },
 }

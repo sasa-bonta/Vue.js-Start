@@ -92,6 +92,8 @@ export default {
     },
     search() {
       if (this.inputData !== '' && this.inputData !== this.$route.query.search) {
+        window.scrollTo(0, 0);
+        this.$store.commit('products/setList', [])
         this.$router.push({
           path: 'products',
           query: {
@@ -121,8 +123,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-    isDarkModeEnabled: 'settings/getDarkModeEnabled'
-  }),
+      isDarkModeEnabled: 'settings/getDarkModeEnabled'
+    }),
     link: function () {
       return this.$route.path
     },
