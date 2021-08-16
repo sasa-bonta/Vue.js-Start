@@ -100,4 +100,12 @@ export default {
   bottom: 0;
   width: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+
+.v-card__title {
+  color: black;
+}
 </style>

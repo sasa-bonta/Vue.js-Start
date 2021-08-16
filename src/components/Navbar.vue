@@ -90,18 +90,18 @@ export default {
     changeDarkMode() {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
-    search() {
-      if (this.inputData !== '' && this.inputData !== this.$route.query.search) {
+    search(value) {
+      if (value !== '' && value !== this.$route.query.search) {
         window.scrollTo(0, 0);
         this.$store.commit('products/setList', [])
         this.$router.push({
           path: 'products',
           query: {
-            link: `/ru/search/?query=${this.inputData}`
+            link: `/ru/search/?query=${value}`
           }
         })
       }
-    }
+    },
   },
   watch: {
     isDarkModeEnabled: {
@@ -121,7 +121,7 @@ export default {
       }
     },
     inputData: function () {
-      this.$store.dispatch('products/showSuggestions', this.inputData)
+      this.$store.dispatch('suggestions/showSuggestions', this.inputData)
     },
   },
   computed: {
@@ -149,6 +149,7 @@ export default {
       {title: 'Log out'},
     ],
     inputData: '',
+    suggestions: [],
   }),
 }
 </script>
