@@ -103,6 +103,9 @@ export default {
       }
     },
   },
+  created() {
+    this.$root.$refs.Navbar = this;
+  },
   watch: {
     isDarkModeEnabled: {
       handler() {
