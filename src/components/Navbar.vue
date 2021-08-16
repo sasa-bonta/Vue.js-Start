@@ -1,9 +1,4 @@
 <template>
-  <!--    <v-app-bar-->
-  <!--        app-->
-  <!--        flat-->
-  <!--        color="white"-->
-  <!--    >-->
   <v-app-bar
       app
       flat
@@ -95,7 +90,7 @@ export default {
         window.scrollTo(0, 0);
         this.$store.commit('products/setList', [])
         this.$router.push({
-          path: 'products',
+          name: 'products',
           query: {
             link: `/ru/search/?query=${value}`
           }

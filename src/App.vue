@@ -1,7 +1,6 @@
 <template>
   <v-app id="inspire">
     <Navbar />
-    <!--    <v-main class="grey lighten-3">-->
     <v-main>
       <v-container
         fluid

@@ -28,7 +28,7 @@ export default {
         window.scrollTo(0, 0);
         this.$store.commit('products/setList', [])
         this.$router.push({
-          path: 'products',
+          name: 'products',
           query: {
             link: `/ru/search/?query=${this.value}`
           }
