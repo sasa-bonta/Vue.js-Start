@@ -16,7 +16,8 @@ export default {
         async loadProducts(store, {link, page = 1}) {
             store.commit('mutateLoading', true)
             let appender = link.includes('?') ? '&' : '?'
-            const products = await fetch(`/api/products?link=${link}${appender}page=${page}`)
+            let params = btoa(`${link}${appender}page=${page}`)
+            const products = await fetch(`/api/products?linkBase64=${params}`)
             if (page > 1) {
                 store.commit('mutateAppendList', await products.json())
             } else {

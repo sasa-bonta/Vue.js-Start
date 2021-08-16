@@ -55,17 +55,13 @@
                     v-if="subCategory.parentLink === item.link"
                 >
                   <router-link
-                      :to="{ path: 'products',
+                      :to="{ name: 'products',
                            query: {
                              link: subCategory.link
                            } }"
                   >
                     <v-list-item-content>
                       <v-list-item-title v-text="subCategory.name">
-                        <router-link
-                            to="/products"
-                            v-text="subCategory.name"
-                        />
                       </v-list-item-title>
                     </v-list-item-content>
                   </router-link>
