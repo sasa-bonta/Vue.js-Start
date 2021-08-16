@@ -119,7 +119,10 @@ export default {
       if (!this.$route.query.link?.includes('/search/')) {
         this.inputData = ''
       }
-    }
+    },
+    inputData: function () {
+      this.$store.dispatch('products/showSuggestions', this.inputData)
+    },
   },
   computed: {
     ...mapGetters({
