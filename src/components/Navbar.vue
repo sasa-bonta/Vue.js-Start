@@ -86,7 +86,7 @@ export default {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
     search(value) {
-      if (value !== '' && value !== this.$route.query.search) {
+      if (value !== '' && value !== this.$route.query.search && !this.$store.getters['products/getIsLoading']) {
         window.scrollTo(0, 0);
         this.$store.commit('products/setList', [])
         this.$router.push({

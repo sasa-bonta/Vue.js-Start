@@ -3,15 +3,16 @@
     <v-autocomplete
         v-model="value"
         :items="$store.getters['suggestions/getSuggestions'].map(obj => obj.title)"
+        :loading="$store.getters['suggestions/getIsSearchSuggestionsLoading']"
         dense
         flat
         hide-details
         persistent-hint
         rounded
         solo-inverted
-        v-on:keyup="$emit('input', $event.target.value)"
+        @keydown="$emit('input', $event.target.value)"
         v-on:keyup.enter="$emit('submitInput', $event.target.value)"
-        @change="select"
+        @change="$emit('submitInput', $event)"
     />
   </v-responsive>
 </template>
@@ -22,20 +23,6 @@ export default {
   data: () => ({
     value: ''
   }),
-  methods: {
-    select() {
-      if (this.value !== '' && this.value !== this.$route.query.search) {
-        window.scrollTo(0, 0);
-        this.$store.commit('products/setList', [])
-        this.$router.push({
-          name: 'products',
-          query: {
-            link: `/ru/search/?query=${this.value}`
-          }
-        })
-      }
-    }
-  }
 }
 </script>
 
