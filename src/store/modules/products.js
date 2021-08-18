@@ -1,3 +1,6 @@
+// let params = btoa(unescape(encodeURIComponent(`${link}${appender}page=${page}`)))
+// import {Base64} from 'js-base64'
+
 export default {
     namespaced: true,
     state: {
