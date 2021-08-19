@@ -1,5 +1,4 @@
-// let params = btoa(unescape(encodeURIComponent(`${link}${appender}page=${page}`)))
-// import {Base64} from 'js-base64'
+import {Base64} from 'js-base64'
 
 export default {
     namespaced: true,
@@ -15,7 +14,7 @@ export default {
         async loadProducts(store, {link, page = 1}) {
             store.commit('mutateLoading', true)
             let appender = link.includes('?') ? '&' : '?'
-            let params = btoa(`${link}${appender}page=${page}`)
+            let params = Base64.encode(`${link}${appender}page=${page}`)
             const products = await fetch(`/api/products?linkBase64=${params}`)
             if (page > 1) {
                 store.commit('mutateAppendList', await products.json())
