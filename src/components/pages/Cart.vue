@@ -43,22 +43,20 @@
 
 <template>
   <v-card>
-      <v-autocomplete
-          v-model="model"
-          :items="states"
-          :readonly="isEditing"
-          persistent-hint
-      >
-        <v-text-field>
-
-        </v-text-field>
-      </v-autocomplete>
+    <v-autocomplete
+      v-model="model"
+      :items="states"
+      :readonly="isEditing"
+      persistent-hint
+    >
+      <v-text-field />
+    </v-autocomplete>
   </v-card>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       isEditing: false,
       states: [

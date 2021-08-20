@@ -25,7 +25,7 @@
         <template>
           <v-carousel>
             <v-carousel-item
-              v-if="!item.img || item.img.length === 0"
+              v-if="item.img.length === 0"
               :src="'https://i.stack.imgur.com/y9DpT.jpg'"
               reverse-transition="fade-transition"
               transition="fade-transition"
@@ -64,7 +64,9 @@
         <v-row
           justify="center"
         >
-          <v-expansion-panels>
+          <v-expansion-panels
+            v-if="item.mainFeatures.length !== 0"
+          >
             <v-expansion-panel>
               <v-expansion-panel-header>Общее</v-expansion-panel-header>
               <v-expansion-panel-content>
@@ -88,7 +90,9 @@
               </v-expansion-panel-content>
             </v-expansion-panel>
 
-            <v-expansion-panel>
+            <v-expansion-panel
+              v-if="item.secondaryFeatures.length !== 0"
+            >
               <v-expansion-panel-header>Свойства</v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-list>
@@ -150,8 +154,8 @@ export default {
     }),
     location: function () {
       return this.item.location
-      ?.map(({name}) => name)
-      .join(', ')
+        ?.map(({name}) => name)
+        .join(', ')
     },
   },
   created() {
