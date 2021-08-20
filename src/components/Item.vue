@@ -54,7 +54,7 @@
         {{ item.title }}
       </div>
       <div
-        class="text-h5 ma-6"
+        class="text-h5 ma-6 description"
       >
         {{ item.description }}
       </div>
@@ -175,5 +175,9 @@ export default {
 <style scoped>
 .v-expansion-panel-header {
   font-size: 1.5rem;
+}
+
+.description {
+  white-space: pre-wrap;
 }
 </style>
