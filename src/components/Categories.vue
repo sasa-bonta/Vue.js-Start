@@ -21,13 +21,13 @@
         permanent
       >
         <v-progress-linear
-          v-if="$store.getters['categories/getIsLoading']"
+          v-if="getIsLoading"
           indeterminate
           height="6"
           color="pink lighten-1"
         />
         <div
-          v-for="(item, i) in $store.getters['categories/getList']"
+          v-for="(item, i) in getList"
           :key="'category-' + i"
         >
           <v-list
@@ -47,7 +47,7 @@
                 </v-list-item-content>
               </template>
               <div
-                v-for="(subCategory, j) in $store.getters['categories/getList']"
+                v-for="(subCategory, j) in getList"
                 :key="'subCategory-' + j"
                 class="subCategories"
               >
@@ -75,13 +75,26 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
   name: "Categories",
+  computed: {
+    ...mapGetters({
+      getList: 'categories/getList',
+      getIsLoading: 'categories/getIsLoading'
+    }),
+  },
   mounted() {
-    if (!this.$store.getters['categories/getList'].length) {
-      this.$store.dispatch('categories/fetchCategories')
+    if (!this.getList.length) {
+      this.fetchCategories()
     }
-  }
+  },
+  methods: {
+    ...mapActions({
+      fetchCategories: 'categories/fetchCategories'
+    }),
+  },
 }
 </script>
 

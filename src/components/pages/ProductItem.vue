@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto fill-height card-outter"
+    class="mx-auto fill-height card-outer"
     max-width="344"
     :color="`grey ${theme.isDark ? 'darken-3' : 'lighten-5'}`"
   >
@@ -13,7 +13,7 @@
       }"
     >
       <v-img
-        :src="item.img[0].replace('https://i.simpalsmedia.com/999.md/BoardImages/900x900/noimage.gif', 'https://i.stack.imgur.com/y9DpT.jpg')"
+        :src="previewImage"
         height="200px"
       />
 
@@ -33,36 +33,6 @@
     >
       Договорная
     </v-card-subtitle>
-
-    <v-card-actions
-      class="card-actions w-100"
-    >
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        Description
-      </v-btn>
-
-      <v-spacer />
-
-      <v-btn
-        icon
-        @click="show = !show"
-      >
-        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-      </v-btn>
-    </v-card-actions>
-
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider />
-
-        <v-card-text>
-          {{ item.description }}
-        </v-card-text>
-      </div>
-    </v-expand-transition>
   </v-card>
 </template>
 
@@ -84,6 +54,10 @@ export default {
   computed: {
     link: function () {
       return this.item.link.substring(4)
+    },
+    previewImage: function () {
+      return this.item.img[0]
+        .replace('https://i.simpalsmedia.com/999.md/BoardImages/900x900/noimage.gif', 'https://i.stack.imgur.com/y9DpT.jpg')
     }
   },
 }

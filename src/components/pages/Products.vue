@@ -2,12 +2,12 @@
   <v-container>
     <div
       v-infinite-scroll="loadMore"
-      :infinite-scroll-disabled="!$store.getters['products/getIsLoading']"
+      :infinite-scroll-disabled="!getIsLoading"
       infinite-scroll-throttle-delay="1000"
     >
       <v-row>
         <v-col
-          v-for="(item, index) in $store.getters['products/getList']"
+          v-for="(item, index) in getList"
           :key="item.link + '-' + index"
           cols="4"
         >
@@ -18,7 +18,7 @@
       </v-row>
 
       <v-row
-        v-if="$store.getters['products/getIsLoading']"
+        v-if="getIsLoading"
       >
         <v-col
           v-for="index in 6"
@@ -38,6 +38,7 @@
 
 <script>
 import ProductItem from "./ProductItem";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "Cart",
@@ -55,20 +56,26 @@ export default {
   inject: {
     theme: {},
   },
+  computed: {
+    ...mapGetters({
+      getIsLoading: 'products/getIsLoading',
+      getList: 'products/getList',
+    }),
+  },
   watch: {
     $route() {
-      if (!this.$store.getters["products/getIsLoading"]) {
+      if (!this.getIsLoading) {
         this.page = 1
-        this.$store.dispatch('products/loadProducts', {
+        this.loadProducts({
           link: this.link,
         })
       }
     },
     link: {
       handler() {
-        if (!this.$store.getters["products/getIsLoading"]) {
+        if (!this.getIsLoading) {
           this.page = 1
-          this.$store.dispatch('products/loadProducts', {
+          this.loadProducts({
             link: this.link,
           })
         }
@@ -78,13 +85,16 @@ export default {
   },
   methods: {
     loadMore: function () {
-      if (!this.$store.getters["products/getIsLoading"]) {
-        this.$store.dispatch('products/loadProducts', {
+      if (!this.getIsLoading) {
+        this.loadProducts({
           link: this.link,
           page: ++this.page,
         })
       }
-    }
+    },
+    ...mapActions({
+      loadProducts: 'products/loadProducts',
+    }),
   }
 }
 </script>
