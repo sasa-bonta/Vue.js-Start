@@ -17,7 +17,9 @@
         height="200px"
       />
 
-      <v-card-title>
+      <v-card-title
+        :class="`${theme.isDark ? 'white' : 'black'}--text`"
+      >
         {{ item.title }}
       </v-card-title>
     </router-link>
@@ -80,6 +82,6 @@ a {
 }
 
 .v-card__title {
-  color: black;
+  /*color: black;*/
 }
 </style>
