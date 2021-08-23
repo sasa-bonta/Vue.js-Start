@@ -9,7 +9,7 @@
         <v-col
           v-for="(item, index) in getList"
           :key="item.link + '-' + index"
-          cols="4"
+          :cols="colsValue"
         >
           <ProductItem
             :item="item"
@@ -61,6 +61,16 @@ export default {
       getIsLoading: 'products/getIsLoading',
       getList: 'products/getList',
     }),
+    colsValue () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 12
+        case 'sm': return 6
+        case 'md': return 4
+        case 'lg': return 4
+        case 'xl': return 3
+      }
+      return 4
+    },
   },
   watch: {
     $route() {

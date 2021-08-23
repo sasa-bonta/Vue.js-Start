@@ -107,11 +107,13 @@
             </v-list-item-group>
           </v-list>
         </v-menu>
-        <Search
-          v-model="inputData"
-          class="justify-center"
-          @submitInput="search"
-        />
+        <div class="searchMobile d-flex justify-center">
+          <Search
+            v-model="inputData"
+            class="justify-center"
+            @submitInput="search"
+          />
+        </div>
         <!--profile-->
         <v-menu
           offset-y
@@ -245,5 +247,8 @@ export default {
 </script>
 
 <style scoped>
-
+.searchMobile {
+  margin: auto;
+  width: 50%;
+}
 </style>
