@@ -1,5 +1,14 @@
 <template>
-  <v-container>
+  <v-container
+    v-if="!getIsLoading && getList.length === 0"
+    class="hidden-md-and-up"
+  >
+    <Categories />
+  </v-container>
+  <v-container
+    v-else
+    class="hidden-sm-and-down"
+  >
     <div
       v-infinite-scroll="loadMore"
       :infinite-scroll-disabled="!getIsLoading"
@@ -39,10 +48,11 @@
 <script>
 import ProductItem from "./ProductItem";
 import {mapActions, mapGetters} from "vuex";
+import Categories from "../Categories";
 
 export default {
   name: "Cart",
-  components: {ProductItem},
+  components: {Categories, ProductItem},
   props: {
     link: {
       required: false,
@@ -61,13 +71,18 @@ export default {
       getIsLoading: 'products/getIsLoading',
       getList: 'products/getList',
     }),
-    colsValue () {
+    colsValue() {
       switch (this.$vuetify.breakpoint.name) {
-        case 'xs': return 12
-        case 'sm': return 6
-        case 'md': return 4
-        case 'lg': return 4
-        case 'xl': return 3
+        case 'xs':
+          return 12
+        case 'sm':
+          return 6
+        case 'md':
+          return 4
+        case 'lg':
+          return 4
+        case 'xl':
+          return 3
       }
       return 4
     },
