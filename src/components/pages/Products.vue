@@ -5,9 +5,9 @@
   >
     <Categories />
   </v-container>
+
   <v-container
     v-else
-    class="hidden-sm-and-down"
   >
     <div
       v-infinite-scroll="loadMore"
@@ -25,14 +25,14 @@
           />
         </v-col>
       </v-row>
-
+      <!--Loading Skeleton-->
       <v-row
         v-if="getIsLoading"
       >
         <v-col
           v-for="index in 6"
           :key="index"
-          cols="4"
+          :cols="colsValue"
         >
           <v-skeleton-loader
             class="mx-auto"

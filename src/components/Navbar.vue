@@ -84,7 +84,7 @@
       >
         <v-menu
           offset-y
-          :close-on-content-click="false"
+          :close-on-content-click="true"
         >
           <template v-slot:activator="{ on, attrs }">
             <v-app-bar-nav-icon
