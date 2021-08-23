@@ -15,11 +15,13 @@ export default {
             store.commit('mutateLoading', true)
             let appender = link.includes('?') ? '&' : '?'
             let params = Base64.encode(`${link}${appender}page=${page}`)
-            const products = await fetch(`/api/products?linkBase64=${params}`)
+            let products = await fetch(`/api/products?linkBase64=${params}`)
+            products = await products.json()
+            store.commit('productHistory/mutateItem', products, {root: true})
             if (page > 1) {
-                store.commit('mutateAppendList', await products.json())
+                store.commit('mutateAppendList', products)
             } else {
-                store.commit('mutateList', await products.json())
+                store.commit('mutateList', products)
             }
             store.commit('mutateLoading', false)
         },

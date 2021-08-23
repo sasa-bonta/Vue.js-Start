@@ -6,7 +6,10 @@
         fluid
       >
         <v-row>
-          <v-col cols="2">
+          <v-col
+            cols="2"
+            class="hidden-sm-and-down"
+          >
             <Categories />
           </v-col>
 

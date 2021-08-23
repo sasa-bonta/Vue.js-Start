@@ -3,8 +3,11 @@
     app
     flat
     elevation="4"
+    :collapse="false"
   >
-    <v-container class="py-0 fill-height">
+    <v-container
+      class="py-0 fill-height hidden-sm-and-down"
+    >
       <v-btn
         v-for="pathLink in links"
         :key="pathLink.route"
@@ -22,7 +25,7 @@
       />
 
       <v-spacer />
-
+      <!--profile-->
       <v-menu
         offset-y
         :close-on-content-click="false"
@@ -45,6 +48,7 @@
             </v-avatar>
           </v-badge>
         </template>
+        <!--profile options-->
         <v-list>
           <v-list-item
             v-for="(item, index) in items"
@@ -69,6 +73,94 @@
           </v-sheet>
         </v-list>
       </v-menu>
+    </v-container>
+
+    <!--On mobile-->
+    <v-container
+      class="hidden-md-and-up"
+    >
+      <v-row
+        class="d-flex align-center justify-space-around"
+      >
+        <v-menu
+          offset-y
+          :close-on-content-click="false"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-app-bar-nav-icon
+              v-bind="attrs"
+              v-on="on"
+            />
+          </template>
+          <v-list>
+            <v-list-item-group>
+              <v-list-item
+                v-for="pathLink in links"
+                :key="pathLink.route"
+                :to="pathLink.route"
+                text
+              >
+                <v-list-item-content>
+                  <v-btn v-text="pathLink.title" />
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-menu>
+        <Search
+          v-model="inputData"
+          class="justify-center"
+          @submitInput="search"
+        />
+        <!--profile-->
+        <v-menu
+          offset-y
+          :close-on-content-click="false"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-badge
+              avatar
+              bordered
+              color="deep-purple accent-4"
+              offset-x="10"
+              offset-y="10"
+              content="3"
+            >
+              <v-avatar
+                size="40"
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg" />
+              </v-avatar>
+            </v-badge>
+          </template>
+          <!--profile options-->
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in items"
+              :key="index"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item>
+              <v-list-item-title>
+                <Settings />
+              </v-list-item-title>
+            </v-list-item>
+
+            <v-sheet class="pa-5">
+              <v-switch
+                :input-value="isDarkModeEnabled"
+                inset
+                label="Dark Mode"
+                @change="changeDarkMode"
+              />
+            </v-sheet>
+          </v-list>
+        </v-menu>
+      </v-row>
     </v-container>
   </v-app-bar>
 </template>
