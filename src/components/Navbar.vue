@@ -147,6 +147,7 @@
       v-model="drawer"
       absolute
       temporary
+      app
     >
       <v-list
         nav
