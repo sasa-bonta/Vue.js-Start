@@ -96,7 +96,7 @@ export default {
     },
   },
   mounted() {
-    if (!this.getList.length) {
+    if (!this.getList.length && !this.getIsLoading) {
       this.fetchCategories()
     }
   },
