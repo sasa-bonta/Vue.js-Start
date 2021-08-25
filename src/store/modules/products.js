@@ -21,14 +21,15 @@ export default {
             if (page > 1) {
                 store.commit('mutateAppendList', products)
             } else {
-                store.commit('mutateList', products)
+                if (link) {
+                    store.commit('mutateList', products)
+                }
             }
             store.commit('mutateLoading', false)
         },
     },
     mutations: {
         mutateList(state, payload) {
-            console.log("mutate list")
             state.list = payload
         },
         mutateAppendList(state, payload) {

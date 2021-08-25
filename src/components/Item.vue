@@ -79,7 +79,7 @@
                       <v-list-item-title
                         v-if="feature.value"
                         class="feature"
-                        v-text="(feature.name.padEnd(30, '.') + feature.value).replaceAll('.', '..')"
+                        v-text="(feature.name.padEnd(20, '.') + feature.value).replaceAll('.', '..')"
                       />
                       <v-list-item-title
                         v-else
@@ -103,7 +103,7 @@
                   >
                     <v-list-item-content>
                       <v-list-item-title
-                        v-text="(feature.name.padEnd(30, '.') + feature.value).replaceAll('.', '..')"
+                        v-text="(feature.name.padEnd(20, '.') + feature.value).replaceAll('.', '..')"
                       />
                     </v-list-item-content>
                   </v-list-item>
@@ -180,9 +180,11 @@ export default {
 
 .description {
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .feature {
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 </style>
