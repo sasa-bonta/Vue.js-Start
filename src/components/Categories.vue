@@ -14,12 +14,8 @@
         <v-toolbar-title>Categories</v-toolbar-title>
         <v-spacer />
       </v-toolbar>
-      <v-navigation-drawer
-        dark
-        src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-        width="100%"
-        permanent
-      >
+
+      <v-container class="categoriesList">
         <v-progress-linear
           v-if="getIsLoading"
           indeterminate
@@ -32,6 +28,8 @@
         >
           <v-list
             v-if="!item.parentLink"
+            outlined
+            color="transparent"
           >
             <v-divider class="my-2" />
             <v-list-group
@@ -69,7 +67,7 @@
             </v-list-group>
           </v-list>
         </div>
-      </v-navigation-drawer>
+      </v-container>
     </v-card>
   </v-sheet>
 </template>
@@ -113,5 +111,11 @@ export default {
 .subCategories {
   margin-left: 20px;
   font-weight: normal;
+}
+
+.categoriesList {
+  background-image: url("https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg");
+  background-size: cover;
+  width: 100%;
 }
 </style>
