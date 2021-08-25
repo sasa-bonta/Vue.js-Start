@@ -130,4 +130,11 @@ export default {
   background-size: cover;
   width: 100%;
 }
+
+.v-list-item__title, .v-list-item__subtitle {
+  flex: 1 1 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+}
 </style>

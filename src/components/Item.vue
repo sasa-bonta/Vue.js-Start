@@ -31,9 +31,9 @@
               transition="fade-transition"
             />
             <v-carousel-item
-              v-for="(image,i) in item.img"
+              v-for="image in item.img"
               v-else
-              :key="i"
+              :key="image"
               :src="image"
               reverse-transition="fade-transition"
               transition="fade-transition"
@@ -72,13 +72,14 @@
               <v-expansion-panel-content>
                 <v-list>
                   <v-list-item
-                    v-for="(feature, index) in item.mainFeatures"
-                    :key="index"
+                    v-for="feature in item.mainFeatures"
+                    :key="feature.name"
                   >
                     <v-list-item-content>
                       <v-list-item-title
                         v-if="feature.value"
-                        v-text="feature.name + ' : ' + feature.value"
+                        class="feature"
+                        v-text="(feature.name.padEnd(30, '.') + feature.value).replaceAll('.', '..')"
                       />
                       <v-list-item-title
                         v-else
@@ -97,12 +98,12 @@
               <v-expansion-panel-content>
                 <v-list>
                   <v-list-item
-                    v-for="(feature, index) in item.secondaryFeatures"
-                    :key="index"
+                    v-for="feature in item.secondaryFeatures"
+                    :key="feature.name"
                   >
                     <v-list-item-content>
                       <v-list-item-title
-                        v-text="feature.name + ' : ' + feature.value"
+                        v-text="(feature.name.padEnd(30, '.') + feature.value).replaceAll('.', '..')"
                       />
                     </v-list-item-content>
                   </v-list-item>
@@ -178,6 +179,10 @@ export default {
 }
 
 .description {
+  white-space: pre-wrap;
+}
+
+.feature {
   white-space: pre-wrap;
 }
 </style>

@@ -28,6 +28,7 @@ export default {
     },
     mutations: {
         mutateList(state, payload) {
+            console.log("mutate list")
             state.list = payload
         },
         mutateAppendList(state, payload) {
