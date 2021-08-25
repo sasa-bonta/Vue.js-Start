@@ -13,7 +13,7 @@ export default {
     actions: {
         async showSuggestions(store, payload) {
             store.commit('mutateIsSearchSuggestionsLoading', true)
-            let suggestions = await fetchSuggestions(payload)
+            const suggestions = await fetchSuggestions(payload)
             // console.log(suggestions.data?.suggestions)
             // let suggestions = await fetch(`/api/suggestions?query=${payload}`)
             store.commit('mutateSearchSuggestions', await suggestions.data?.suggestions)
