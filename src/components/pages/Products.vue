@@ -1,14 +1,5 @@
 <template>
-  <v-container
-    v-if="!getIsLoading && getList.length === 0"
-    class="hidden-md-and-up"
-  >
-    <Categories />
-  </v-container>
-
-  <v-container
-    v-else
-  >
+  <v-container>
     <div
       v-infinite-scroll="loadMore"
       :infinite-scroll-disabled="!getIsLoading"
@@ -48,11 +39,10 @@
 <script>
 import ProductItem from "./ProductItem";
 import {mapActions, mapGetters} from "vuex";
-import Categories from "../Categories";
 
 export default {
   name: "Cart",
-  components: {Categories, ProductItem},
+  components: {ProductItem},
   props: {
     link: {
       required: false,
