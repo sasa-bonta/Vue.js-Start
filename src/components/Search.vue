@@ -2,8 +2,8 @@
   <v-responsive max-width="260">
     <v-autocomplete
       v-model="value"
-      :items="$store.getters['suggestions/getSuggestions'].map(obj => obj.title)"
-      :loading="$store.getters['suggestions/getIsSearchSuggestionsLoading']"
+      :items="suggestions.map(obj => obj.title)"
+      :loading="isSuggestionsLoading"
       dense
       flat
       hide-details
@@ -18,11 +18,19 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Search",
   data: () => ({
     value: ''
   }),
+  computed: {
+    ...mapGetters({
+      suggestions: 'suggestions/getSuggestions',
+      isSuggestionsLoading: 'suggestions/getIsSearchSuggestionsLoading',
+    }),
+  },
 }
 </script>
 
