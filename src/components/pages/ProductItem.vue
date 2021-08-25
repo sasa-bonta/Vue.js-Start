@@ -55,7 +55,7 @@ export default {
   }),
   computed: {
     link: function () {
-      return this.item.link.substring(4)
+      return this.item.link
     },
     previewImage: function () {
       return this.item.img[0]

@@ -7,8 +7,8 @@
     >
       <v-row>
         <v-col
-          v-for="(item, index) in getList"
-          :key="item.link + '-' + index"
+          v-for="item in getList"
+          :key="item.link"
           :cols="colsValue"
         >
           <ProductItem

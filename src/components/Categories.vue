@@ -23,35 +23,33 @@
           color="pink lighten-1"
         />
         <div
-          v-for="(item, i) in getList"
-          :key="'category-' + i"
+          v-for="category in categories"
+          :key="category.link"
         >
           <v-list
-            v-if="!item.parentLink"
             outlined
+            dark
             color="transparent"
           >
             <v-divider class="my-2" />
             <v-list-group
-              v-model="item.active"
-              :prepend-icon="item.action"
+              v-model="category.active"
+              :prepend-icon="category.action"
               no-action
             >
               <template
                 v-slot:activator
               >
                 <v-list-item-content>
-                  <v-list-item-title v-text="item.name" />
+                  <v-list-item-title v-text="category.name" />
                 </v-list-item-content>
               </template>
               <div
-                v-for="(subCategory, j) in getList"
-                :key="'subCategory-' + j"
+                v-for="subCategory in category.children"
+                :key="subCategory.link"
                 class="subCategories"
               >
-                <v-list-item
-                  v-if="subCategory.parentLink === item.link"
-                >
+                <v-list-item>
                   <router-link
                     :to="{ name: 'products',
                            query: {
@@ -82,6 +80,20 @@ export default {
       getList: 'categories/getList',
       getIsLoading: 'categories/getIsLoading'
     }),
+    categories() {
+      let categories = {}
+      for (let category of this.getList) {
+        if (!category.parentLink) {
+          categories[category.link] = {
+            children: [],
+            ...category,
+          }
+        } else {
+          categories[category.parentLink].children.push(category)
+        }
+      }
+      return categories
+    },
   },
   mounted() {
     if (!this.getList.length) {
