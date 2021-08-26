@@ -1,4 +1,5 @@
 import {Base64} from 'js-base64'
+import {fetchProducts} from "../../api/999";
 
 export default {
     namespaced: true,
@@ -14,15 +15,14 @@ export default {
         async loadProducts(store, {link, page = 1}) {
             store.commit('mutateLoading', true)
             let appender = link.includes('?') ? '&' : '?'
-            let params = Base64.encode(`${link}${appender}page=${page}`)
-            let products = await fetch(`/api/products?linkBase64=${params}`)
-            products = await products.json()
-            store.commit('productHistory/mutateItem', products, {root: true})
+            const params = Base64.encode(`${link}${appender}page=${page}`)
+            const products = await fetchProducts(params)
+            store.commit('productHistory/mutateItem', products.data, {root: true})
             if (page > 1) {
-                store.commit('mutateAppendList', products)
+                store.commit('mutateAppendList', products.data)
             } else {
                 if (link) {
-                    store.commit('mutateList', products)
+                    store.commit('mutateList', products.data)
                 }
             }
             store.commit('mutateLoading', false)

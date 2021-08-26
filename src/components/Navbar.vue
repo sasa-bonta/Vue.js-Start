@@ -200,7 +200,8 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      isDarkModeEnabled: 'settings/getDarkModeEnabled'
+      isDarkModeEnabled: 'settings/getDarkModeEnabled',
+      isProductsLoading: 'products/getIsLoading',
     }),
     link: function () {
       return this.$route.path
@@ -241,7 +242,7 @@ export default {
       this.$store.commit('settings/setDarkModeEnabled', !this.isDarkModeEnabled)
     },
     search(value) {
-      if (value !== '' && `/ru/search/?query=${value}` !== this.$route.query.link && !this.$store.getters['products/getIsLoading']) {
+      if (value !== '' && `/ru/search/?query=${value}` !== this.$route.query.link && !this.isProductsLoading) {
         window.scrollTo(0, 0);
         this.$store.commit('products/setList', [])
         this.$router.push({
