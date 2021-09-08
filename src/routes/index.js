@@ -4,6 +4,7 @@ import Auth from "../layouts/Auth";
 import authRoutes from "./auth"
 import Dashboard from "../layouts/Dashboard";
 import dashboardRoutes from "./dashboard";
+import Error404 from "../components/Error404";
 
 Vue.use(VueRouter)
 
@@ -19,8 +20,12 @@ const routes = [
         name: 'auth',
         path: '/auth',
         component: Auth,
-        children: authRoutes
+        children: authRoutes,
     },
+    {
+        path: '*',
+        component: Error404,
+    }
 ]
 
 const router = new VueRouter({
