@@ -1,12 +1,16 @@
 <template>
   <div>
-    <RouterView/>
+    <RouterView />
+    <ErrorSnackbar />
   </div>
 </template>
 
 <script>
+import ErrorSnackbar from "./pages/ErrorSnackbar";
+
 export default {
   name: "MainView",
+  components: {ErrorSnackbar},
 }
 </script>
 

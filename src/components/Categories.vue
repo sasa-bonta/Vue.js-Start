@@ -72,6 +72,8 @@
 
 <script>
 import {mapActions, mapGetters} from "vuex";
+import {EventBus} from "../eventBus";
+import {ERROR_AXIOS_FETCH} from "../constants/constants";
 
 export default {
   name: "Categories",
@@ -98,6 +100,7 @@ export default {
   mounted() {
     if (!this.getList.length && !this.getIsLoading) {
       this.fetchCategories()
+        .catch((e) => EventBus.$emit(ERROR_AXIOS_FETCH, e.response.data.message))
     }
   },
   methods: {

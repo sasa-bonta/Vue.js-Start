@@ -173,9 +173,11 @@
 
 <script>
 import Settings from "./Settings";
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 import Search from "./Search";
 import Categories from "./Categories";
+import {EventBus} from "../eventBus";
+import {ERROR_AXIOS_FETCH} from "../constants/constants";
 
 export default {
   name: "Navbar",
@@ -228,7 +230,8 @@ export default {
       }
     },
     inputData: function () {
-      this.$store.dispatch('suggestions/showSuggestions', this.inputData)
+      this.showSuggestions(this.inputData)
+        .catch((e) => EventBus.$emit(ERROR_AXIOS_FETCH, e.response.data.message))
     },
     group() {
       this.drawer = false
@@ -253,6 +256,9 @@ export default {
         })
       }
     },
+    ...mapActions({
+      showSuggestions: 'suggestions/showSuggestions',
+    })
   },
 }
 </script>

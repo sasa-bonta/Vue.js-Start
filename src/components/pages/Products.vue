@@ -39,6 +39,8 @@
 <script>
 import ProductItem from "./ProductItem";
 import {mapActions, mapGetters} from "vuex";
+import {EventBus} from "../../eventBus";
+import {ERROR_AXIOS_FETCH} from "../../constants/constants";
 
 export default {
   name: "Cart",
@@ -83,7 +85,7 @@ export default {
         this.page = 1
         this.loadProducts({
           link: this.link,
-        })
+        }).catch((e) => EventBus.$emit(ERROR_AXIOS_FETCH, e.response.data.message))
       }
     },
     link: {
@@ -92,7 +94,7 @@ export default {
           this.page = 1
           this.loadProducts({
             link: this.link,
-          })
+          }).catch((e) => EventBus.$emit(ERROR_AXIOS_FETCH, e.response.data.message))
         }
       },
       immediate: true,
@@ -104,7 +106,7 @@ export default {
         this.loadProducts({
           link: this.link,
           page: ++this.page,
-        })
+        }).catch((e) => EventBus.$emit(ERROR_AXIOS_FETCH, e.response.data.message))
       }
     },
     ...mapActions({
