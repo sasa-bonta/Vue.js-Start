@@ -1,22 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Dashboard from "../components/pages/Dashboard";
-import Messages from "../components/pages/Messages";
-import Products from "../components/pages/Products";
-import Updates from "../components/pages/Updates";
-import Cart from "../components/pages/Cart";
-import Item from "../components/Item";
+import Auth from "../layouts/Auth";
+import authRoutes from "./auth"
+import Dashboard from "../layouts/Dashboard";
+import dashboardRoutes from "./dashboard";
 
 Vue.use(VueRouter)
 
 const routes = [
     {path: '/', redirect: '/dashboard'},
-    {name: 'dashboard',path: '/dashboard', component: Dashboard},
-    {name: 'messages',path: '/messages', component: Messages},
-    {name: 'products',path: '/products', component: Products, props: (router) => ({link: router.query.link})},
-    {name: 'updates',path: '/updates', component: Updates},
-    {name: 'cart',path: '/cart', component: Cart},
-    {name: 'item',path: '/item/:id', component: Item, props: true},
+    {
+        name: 'dashboard',
+        path: '/dashboard',
+        component: Dashboard,
+        children: dashboardRoutes,
+    },
+    {
+        name: 'auth',
+        path: '/auth',
+        component: Auth,
+        children: authRoutes
+    },
 ]
 
 const router = new VueRouter({

@@ -160,7 +160,7 @@
           <v-list-item
             v-for="pathLink in links"
             :key="pathLink.route"
-            :to="pathLink.route"
+            :to="{name: pathLink.route}"
           >
             <v-list-item-title>{{ pathLink.title }}</v-list-item-title>
           </v-list-item>
@@ -182,11 +182,11 @@ export default {
   components: {Categories, Search, Settings},
   data: () => ({
     links: [
-      {title: 'Dashboard', route: '/dashboard'},
-      {title: 'Messages', route: '/messages'},
-      {title: 'Products', route: '/products'},
-      {title: 'Updates', route: '/updates'},
-      {title: 'Cart', route: '/cart'},
+      {title: 'Home', route: 'home'},
+      {title: 'Messages', route: 'messages'},
+      {title: 'Products', route: 'products'},
+      {title: 'Updates', route: 'updates'},
+      {title: 'Cart', route: 'cart'},
     ],
     items: [
       {title: 'Profile'},

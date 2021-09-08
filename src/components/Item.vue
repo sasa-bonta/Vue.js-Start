@@ -79,7 +79,7 @@
                       <v-list-item-title
                         v-if="feature.value"
                         class="feature"
-                        v-text="feature.name.padEnd(20, '.').replaceAll('.', '..') + feature.value"
+                        v-text="featureTitle(feature.name, feature.value)"
                       />
                       <v-list-item-title
                         v-else
@@ -103,7 +103,7 @@
                   >
                     <v-list-item-content>
                       <v-list-item-title
-                        v-text="feature.name.padEnd(20, '.').replaceAll('.', '..') + feature.value"
+                        v-text="featureTitle(feature.name, feature.value)"
                       />
                     </v-list-item-content>
                   </v-list-item>
@@ -158,6 +158,9 @@ export default {
         ?.map(({name}) => name)
         .join(', ')
     },
+    featureTitle: () => (name, value) => {
+      return `${name.padEnd(20, '.').replace(/\./g, '..')}${value}`
+    }
   },
   created() {
     this.loadItem(this.id)
