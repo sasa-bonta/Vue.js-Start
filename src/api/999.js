@@ -4,3 +4,7 @@ export const fetchSuggestions = (search) => api.get('suggestions', {params: {sea
 export const fetchCategories = () => api.get('categories')
 export const fetchItem = (link) => api.get('item', {params: {link}})
 export const fetchProducts = (linkBase64) => api.get('page', {params: {linkBase64}})
+
+export const testFunction = () => {
+    return 'test function'
+}
