@@ -2,9 +2,11 @@ export default {
     namespaced: true,
     state: {
         isAuthorized: false,
+        username: '',
     },
     getters: {
         getIsAuthorized: (state) => state.isAuthorized,
+        getUsername: (state) => state.username,
     },
     actions: {
         login(store, {username}) {
@@ -12,6 +14,7 @@ export default {
             store.commit('mutateIsAuthorized', true)
         },
         logout(store) {
+            store.commit('mutateUsername', null)
             store.commit('mutateIsAuthorized', false)
         }
     },
@@ -20,7 +23,7 @@ export default {
             store.isAuthorized = payload
         },
         mutateUsername(store, payload) {
-            store.email = payload
+            store.username = payload
         }
     },
 }
