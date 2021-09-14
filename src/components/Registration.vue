@@ -8,12 +8,18 @@
       Регистрация
     </v-card-subtitle>
     <v-card-subtitle class="pa-1">
-      Пройдите авторизацию <br> для начало покупок
+      Пройдите регистрацию <br> для начало покупок
     </v-card-subtitle>
     <v-text-field
       hide-details
       color="red"
-      label="Логин или номер телефона"
+      label="Электронная почта или имя пользователя"
+    />
+    <v-text-field
+      hide-details
+      color="red"
+      label="Пароль"
+      type="password"
     />
     <v-text-field
       color="red"

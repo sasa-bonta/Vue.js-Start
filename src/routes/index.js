@@ -11,13 +11,11 @@ Vue.use(VueRouter)
 const routes = [
     {path: '/', redirect: '/dashboard'},
     {
-        name: 'dashboard',
         path: '/dashboard',
         component: Dashboard,
         children: dashboardRoutes,
     },
     {
-        name: 'auth',
         path: '/auth',
         component: Auth,
         children: authRoutes,

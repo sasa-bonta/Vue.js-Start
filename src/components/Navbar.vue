@@ -28,6 +28,7 @@
         <v-spacer />
         <!--profile-->
         <v-menu
+          v-if="IsAuthorized"
           offset-y
           :close-on-content-click="false"
         >
@@ -58,11 +59,20 @@
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
 
+            <v-list-item
+              @click="exitProfile"
+            >
+              <v-list-item-title>
+                Log out
+              </v-list-item-title>
+            </v-list-item>
+
             <v-list-item>
               <v-list-item-title>
                 <Settings />
               </v-list-item-title>
             </v-list-item>
+
 
             <v-sheet class="pa-5">
               <v-switch
@@ -74,6 +84,13 @@
             </v-sheet>
           </v-list>
         </v-menu>
+        <div
+          v-else
+        >
+          <router-link :to="{name: 'login'}">
+            <v-icon>mdi-login-variant</v-icon>
+          </router-link>
+        </div>
       </v-container>
 
       <!--Drawer for mobile-->
@@ -93,6 +110,7 @@
 
           <!--profile-->
           <v-menu
+            v-if="IsAuthorized"
             offset-y
             :close-on-content-click="false"
           >
@@ -123,6 +141,14 @@
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
 
+              <v-list-item
+                @click="exitProfile"
+              >
+                <v-list-item-title>
+                  Log out
+                </v-list-item-title>
+              </v-list-item>
+
               <v-list-item>
                 <v-list-item-title>
                   <Settings />
@@ -139,6 +165,13 @@
               </v-sheet>
             </v-list>
           </v-menu>
+          <div
+            v-else
+          >
+            <router-link :to="{name: 'login'}">
+              <v-icon>mdi-login-variant</v-icon>
+            </router-link>
+          </div>
         </v-row>
       </v-container>
     </v-app-bar>
@@ -193,7 +226,6 @@ export default {
     items: [
       {title: 'Profile'},
       {title: 'Help and Assistance'},
-      {title: 'Log out'},
     ],
     inputData: '',
     suggestions: [],
@@ -204,6 +236,7 @@ export default {
     ...mapGetters({
       isDarkModeEnabled: 'settings/getDarkModeEnabled',
       isProductsLoading: 'products/getIsLoading',
+      IsAuthorized: 'auth/getIsAuthorized',
     }),
     link: function () {
       return this.$route.path
@@ -256,8 +289,13 @@ export default {
         })
       }
     },
+    exitProfile() {
+      this.logout()
+      this.$router.push({name: 'login'})
+    },
     ...mapActions({
       showSuggestions: 'suggestions/showSuggestions',
+      logout: 'auth/logout'
     })
   },
 }

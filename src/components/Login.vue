@@ -10,28 +10,34 @@
     <v-card-subtitle class="pa-1">
       Пройдите авторизацию <br> для начало покупок
     </v-card-subtitle>
-    <v-text-field
-      hide-details
-      color="red"
-      label="Логин или номер телефона"
-    />
-    <v-text-field
-      color="red"
-      label="Пароль"
-      type="password"
-    />
-    <v-card-actions>
-      <v-btn
+    <v-form>
+      <v-text-field
+        v-model="username"
+        hide-details
         color="red"
-        dark
-        block
-        rounded
-      >
-        Войти
-      </v-btn>
-    </v-card-actions>
+        label="Электронная почта или имя пользователя"
+      />
+      <v-text-field
+        v-model="password"
+        color="red"
+        label="Пароль"
+        type="password"
+      />
+      <v-card-actions>
+        <v-btn
+          color="red"
+          dark
+          block
+          rounded
+          @click="login"
+        >
+          Войти
+        </v-btn>
+      </v-card-actions>
+    </v-form>
     <p class="mt-3">
-      У вас нет аккаунта? <span
+      У вас нет аккаунта?
+      <span
         class="red--text"
         style="cursor:pointer"
       >
@@ -45,7 +51,17 @@
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  data: () => ({
+    username: '',
+    password: '',
+  }),
+  methods: {
+    login() {
+      this.$store.dispatch('auth/login', {username: this.username, password: this.password})
+      this.$router.push({name: 'home'})
+    }
+  }
 }
 </script>
 
