@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        isAuthorized: false,
+        isAuthorized: true,
         username: '',
     },
     getters: {

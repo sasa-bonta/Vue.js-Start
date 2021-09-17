@@ -1,34 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631521084186" clover="3.2.0">
-  <project timestamp="1631521084187" name="All files">
-    <metrics statements="14" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="10" coveredmethods="4" elements="26" coveredelements="14" complexity="0" loc="14" ncloc="14" packages="2" files="3" classes="3"/>
-    <package name="api">
-      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-      <file name="999.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/api/999.js">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+<coverage generated="1631895230343" clover="3.2.0">
+  <project timestamp="1631895230344" name="All files">
+    <metrics statements="57" coveredstatements="57" conditionals="11" coveredconditionals="11" methods="26" coveredmethods="26" elements="94" coveredelements="94" complexity="0" loc="57" ncloc="57" packages="2" files="9" classes="9"/>
+    <package name="modules">
+      <metrics statements="52" coveredstatements="52" conditionals="11" coveredconditionals="11" methods="26" coveredmethods="26"/>
+      <file name="categories.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/categories.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
       </file>
-      <file name="api.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/api/api.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="item.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/item.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+      </file>
+      <file name="productHistory.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/productHistory.js">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+      </file>
+      <file name="products.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/products.js">
+        <metrics statements="15" coveredstatements="15" conditionals="5" coveredconditionals="5" methods="6" coveredmethods="6"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+      </file>
+      <file name="searchSuggestions.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/searchSuggestions.js">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="12" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+      </file>
+      <file name="settings.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/settings.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="store.modules">
-      <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
-      <file name="searchSuggestions.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/searchSuggestions.js">
-        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
-        <line num="10" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+    <package name="modules.tests.stubs">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="itemTestDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/itemTestDataProvider.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="productsHistoryDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsHistoryDataProvider.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+      <file name="productsTestDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsTestDataProvider.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="668" count="1" type="stmt"/>
       </file>
     </package>
   </project>

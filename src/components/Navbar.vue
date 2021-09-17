@@ -280,7 +280,7 @@ export default {
     search(value) {
       if (value !== '' && `/ru/search/?query=${value}` !== this.$route.query.link && !this.isProductsLoading) {
         window.scrollTo(0, 0);
-        this.$store.commit('products/setList', [])
+        this.$store.commit('products/mutateList', [])
         this.$router.push({
           name: 'products',
           query: {

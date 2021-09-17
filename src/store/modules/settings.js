@@ -1,4 +1,4 @@
-import {testFunction} from "../../api/999";
+// import {testFunction} from "../../api/999";
 
 export default {
     namespaced: true,
@@ -12,7 +12,7 @@ export default {
     mutations: {
         setDarkModeEnabled(state, payload) {
             state.isDarkModeEnabled = payload
-            console.log(testFunction())
+            // console.log(testFunction())
         },
     },
 }

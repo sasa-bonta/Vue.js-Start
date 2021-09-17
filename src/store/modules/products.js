@@ -1,12 +1,14 @@
 import {Base64} from 'js-base64'
 import {fetchProducts} from "../../api/999";
 
+export const state = {
+    list: [],
+    isLoading: false,
+}
+
 export default {
     namespaced: true,
-    state: {
-        list: [],
-        isLoading: false,
-    },
+    state,
     getters: {
         getList: (state) => state.list,
         getIsLoading: (state) => state.isLoading,
@@ -21,9 +23,7 @@ export default {
             if (page > 1) {
                 store.commit('mutateAppendList', products.data)
             } else {
-                if (link) {
-                    store.commit('mutateList', products.data)
-                }
+                store.commit('mutateList', products.data)
             }
             store.commit('mutateLoading', false)
         },
@@ -37,9 +37,6 @@ export default {
         },
         mutateLoading(state, payload) {
             state.isLoading = payload
-        },
-        setList(state, payload) {
-            state.list = payload
         },
     },
 }

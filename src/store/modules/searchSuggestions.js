@@ -1,11 +1,13 @@
 import {fetchSuggestions} from "../../api/999";
 
+export const state = {
+    search: [],
+    isSearchSuggestionsLoading: false,
+}
+
 export default {
     namespaced: true,
-    state: {
-        search: [],
-        isSearchSuggestionsLoading: false,
-    },
+    state,
     getters: {
         getSuggestions: (state) => state.search ?? [],
         getIsSearchSuggestionsLoading: (state) => state.isSearchSuggestionsLoading,
