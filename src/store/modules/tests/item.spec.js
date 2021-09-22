@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import item from "../item";
 import {state} from "../item"
-import {testItem} from "./stubs/itemTestDataProvider"
+import {testItem} from "./stubs/itemStubs"
 import {fetchItem} from "../../../api/999";
 
 Vue.use(Vuex)

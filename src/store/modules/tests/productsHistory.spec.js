@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import productHistory from "../productHistory";
-import {products, productsNew} from "./stubs/productsHistoryDataProvider";
+import {products, productsNew} from "./stubs/productsHistoryStubs";
 
 Vue.use(Vuex)
 

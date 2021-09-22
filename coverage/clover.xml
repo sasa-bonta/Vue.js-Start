@@ -77,16 +77,16 @@
     </package>
     <package name="modules.tests.stubs">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="itemTestDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/itemTestDataProvider.js">
+      <file name="itemStubs.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/itemStubs.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="productsHistoryDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsHistoryDataProvider.js">
+      <file name="productsHistoryStubs.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsHistoryStubs.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
       </file>
-      <file name="productsTestDataProvider.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsTestDataProvider.js">
+      <file name="productsStubs.js" path="/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsStubs.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="668" count="1" type="stmt"/>

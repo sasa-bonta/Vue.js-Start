@@ -168,7 +168,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/itemTestDataProvider.js
+SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/itemStubs.js
 FNF:0
 FNH:0
 DA:1,1
@@ -178,7 +178,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsHistoryDataProvider.js
+SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsHistoryStubs.js
 FNF:0
 FNH:0
 DA:1,1
@@ -189,7 +189,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsTestDataProvider.js
+SF:/home/abonta/PhpstormProjects/preot.md-fr/src/store/modules/tests/stubs/productsStubs.js
 FNF:0
 FNH:0
 DA:1,1

@@ -4,7 +4,7 @@ import products from "../products";
 import {state} from "../products";
 import {fetchProducts} from "../../../api/999";
 import {Base64} from "js-base64";
-import {productsList1, productsList2} from './stubs/productsTestDataProvider'
+import {productsList1, productsList2} from './stubs/productsStubs'
 
 Vue.use(Vuex)
 
